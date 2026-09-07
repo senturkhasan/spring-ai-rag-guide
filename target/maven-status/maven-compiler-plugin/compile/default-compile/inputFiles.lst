@@ -1,0 +1,12 @@
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/SpringAiRagGuideApplication.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/config/ChatConfig.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/controller/DocumentController.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/controller/IngestionController.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/controller/RagController.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/dto/DocumentUploadResponse.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/dto/QueryRequest.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/dto/QueryResponse.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/exception/GlobalExceptionHandler.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/service/DocumentIngestionService.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/service/IngestionService.java
+/Users/hasan/Desktop/udemy icerik/spring-ai-rag-guide/spring-ai-rag-guide/src/main/java/com/senturkhasan/springairag/service/RagService.java

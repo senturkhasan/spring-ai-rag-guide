@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: spring-ai-rag-guide
+
+  servlet:
+    multipart:
+      max-file-size: 40MB
+      max-request-size: 40MB
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/rag_db
+    username: hasan
+    password: postgre
+    driver-class-name: org.postgresql.Driver
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.2:1b
+          temperature: 0.3
+          repeat-penalty: 1.2 # Tekrar eden kelimeleri cezalandırır (Varsayılan 1.1 civarıdır)
+          top-p: 0.9
+      embedding:
+        options:
+          model: mxbai-embed-large
+
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1024 # mxbai-embed-large modeli 1024 boyutlu vektör üretir
+        initialize-schema: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+logging:
+  level:
+    org.springframework.ai: DEBUG
+    org.springframework.ai.reader.pdf: DEBUG
+    org.springframework.ai.ollama: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+server:
+  port: 8080
