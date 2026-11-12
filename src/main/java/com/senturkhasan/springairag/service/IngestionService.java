@@ -47,7 +47,21 @@ public class IngestionService {
             // 3. Metinleri anlamlı parçalara bölme (Chunking)
             TokenTextSplitter splitter = new TokenTextSplitter(800, 350, 5, 10000, true);
             List<Document> splitDocuments = splitter.apply(cleanedDocuments);
-
+               /*
+               *
+               * Token Nedir?Yapay zeka modelleri metinleri bizim gibi kelime kelime değil, token adı verilen parçalar halinde okur.
+               * Türkçe için ortalama bir kural olarak: 1 kelime $\approx$ 1.5 - 2 token civarındadır.Yani 800 token'lık bir
+               *  sınır koyduğunuzda, yapay zekaya "Bana tek seferde yaklaşık 400 - 500 kelimelik metin parçaları oluştur" demiş olursunuz.Neden Böyle
+               * Bir Sınır (Maksimum Token) Koyuyoruz?Anlam Bütünlüğü (Bağlam): Devasa bir PDF kitabını yapay zekaya tek parça halinde verirseniz aradığı
+               * bilgiyi bulmakta zorlanır. Çok küçük parçalara (örneğin sadece 10 kelime) bölerseniz de cümlenin başı ile sonu arasındaki anlam ilişkisi kaybolur.
+               * 800 token, bir konunun anlatımını ve anlam bütünlüğünü bozmadan saklamak için ideal bir "paragraf / sayfa" boyutudur.Vektör Veritabanı ve
+               * Arama Başarısı: RAG mimarisinde kullanıcı bir soru sorduğunda, sistem bu 800 token'lık parçalar arasında en alakalı olan 3-5 parçayı bulur.
+               * Parça boyutu dengeli olduğunda, kullanıcının sorusuna nokta atışı yanıt veren doğru paragraf daha kolay tespit edilir.Maliyet ve Hız: Yapay zeka modellerine
+               * gönderdiğiniz token sayısı arttıkça işlem süresi (gecikme) ve (API kullanılıyorsa) ücret artar. Maksimum sınırı belirleyerek modelin gereksiz devasa metinlerle
+               *  yavaşlamasını engellersiniz.Özetle; defaultChunkSize: 800 ayarı, uzun dokümanlarınızı kesip biçerken "Her bir parçanın boyutu en fazla 800 token
+               *  (yaklaşık 1-1.5 sayfa/paragraf)
+               * olsun, bundan uzun olursa yeni bir parçaya geç" talimatıdır.
+               * */
             // 4. Vektörleştirme ve pgvector veritabanına kaydetme
             vectorStore.accept(splitDocuments);
 

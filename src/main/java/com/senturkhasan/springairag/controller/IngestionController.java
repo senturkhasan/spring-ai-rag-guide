@@ -2,7 +2,6 @@ package com.senturkhasan.springairag.controller;
 
 import com.senturkhasan.springairag.dto.DocumentUploadResponse;
 import com.senturkhasan.springairag.service.IngestionService;
-import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/api/v1/ingest")
 public class IngestionController {
-
-
-
-
     private final IngestionService ingestionService;
 
     // Açık Constructor Enjeksiyonu

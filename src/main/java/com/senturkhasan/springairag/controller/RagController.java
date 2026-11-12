@@ -25,7 +25,7 @@ public class RagController {
         return ResponseEntity.ok(response);
     }
 
-
+        /**endpoint'i üzerinden Spring WebFlux (Flux<String>) kullanarak LLM'in ürettiği yanıtı token token canlı olarak tarayıcıya (SSE) fırlatır.*/
     @PostMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<String> askQuestionStream(@RequestBody QueryRequest request) {
         return ragService.askQuestionStream(request);
